@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Untuk Kamu 💕</title>
+<style>
+*{
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  margin:0;
+  background:linear-gradient(135deg,#ffd6e8,#fff0f6);
+  overflow-x:hidden;
+}
+
+/* LOGIN */
+.login{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.box{
+  background:#fff0f6;
+  padding:35px;
+  width:330px;
+  border-radius:25px;
+  text-align:center;
+  box-shadow:0 15px 30px rgba(255,160,200,.5);
+}
+
+.box h2{color:#ff5da2;}
+.box p{color:#ff85b3;font-size:14px;}
+
+input{
+  width:100%;
+  padding:12px;
+  margin-top:12px;
+  border:none;
+  border-radius:14px;
+  background:#ffe4f1;
+}
+
+button{
+  margin-top:18px;
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:16px;
+  background:#ff85b3;
+  color:white;
+  font-size:15px;
+  cursor:pointer;
+}
+
+#error{color:red;font-size:13px;margin-top:8px}
+
+/* HOME */
+#home{
+  display:none;
+}
+
+.section{
+  min-height:100vh;
+  padding:50px 20px;
+  text-align:center;
+}
+
+.section h1{
+  color:#ff5da2;
+}
+
+.section p{
+  color:#ff85b3;
+  font-size:18px;
+  max-width:600px;
+  margin:auto;
+}
+
+/* FOTO */
+.foto{
+  margin-top:30px;
+}
+.foto img{
+  width:260px;
+  border-radius:25px;
+  box-shadow:0 10px 25px rgba(255,140,180,.5);
+}
+
+/* LOVE */
+.love{
+  position:fixed;
+  top:-10px;
+  animation:jatuh 6s linear infinite;
+  opacity:.8;
+}
+@keyframes jatuh{
+  0%{transform:translateY(-10vh);opacity:0}
+  20%{opacity:1}
+  100%{transform:translateY(110vh);opacity:0}
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div class="login" id="login">
+  <div class="box">
+    <h2>💗 Login Cinta 💗</h2>
+    <p>Khusus pacarku 😘</p>
+    <input id="user" placeholder="Nama panggilan">
+    <input id="pass" type="password" placeholder="Tanggal jadian (DDMMYYYY)">
+    <button onclick="login()">Masuk 💕</button>
+    <div id="error"></div>
+  </div>
+</div>
+
+<!-- HOME -->
+<div id="home">
+
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2023/02/28/audio_7bfe6c6b18.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="section">
+    <h1>💖 Hai Cintaku 💖</h1>
+    <p>
+      Dari pertama ketemu,  
+      aku tahu…  
+      kamu rumah.
+    </p>
+  </div>
+
+  <div class="section">
+    <h1>🌸 Tentang Kita 🌸</h1>
+    <p>
+      Kita bukan tentang siapa yang paling sempurna,
+tapi tentang dua orang yang memilih bertahan.
+Tentang tawa kecil yang sederhana,
+dan diam yang tetap nyaman.
+Bersamamu, aku belajar
+bahwa cinta bukan hanya kata manis,
+tapi hadir… setiap hari.
+    </p>
+  </div>
+
+  <div class="section foto">
+    <h1>📸 Kenangan Kita 📸</h1>
+    <img src="kolase.jpg">
+    <p style="margin-top:20px">
+      Setiap foto menyimpan cerita,
+tentang hari biasa yang jadi istimewa
+karena ada kamu di dalamnya.
+Mungkin waktu terus berjalan,
+tapi kenangan tentang kita
+akan selalu tinggal,
+dan tak pernah benar-benar pergi.
+    </p>
+  </div>
+
+  <div class="section">
+    <h1>💌 Pesan Buat Kamu 💌</h1>
+    <p>
+      Kalau suatu hari dunia terasa berat,
+jangan pergi.
+Pulanglah ke aku.
+Kita istirahat sebentar,
+lalu lanjut lagi…
+bareng.
+    </p>
+  </div>
+
+</div>
+
+<script>
+function login(){
+  const user=document.getElementById("user").value;
+  const pass=document.getElementById("pass").value;
+
+  // GANTI INI
+  const nama="Rama babunya Yama";
+  const tanggal="01052022";
+
+  if(user===nama && pass===tanggal){
+    document.getElementById("login").style.display="none";
+    document.getElementById("home").style.display="block";
+    love();
+  }else{
+    document.getElementById("error").innerText="Kamu bukan pacarku 😢";
+  }
+}
+
+// LOVE JATUH
+function love(){
+  setInterval(()=>{
+    const l=document.createElement("div");
+    l.className="love";
+    l.innerHTML=" 💗";
+    l.style.left=Math.random()*100+"vw";
+    l.style.fontSize=Math.random()*20+15+"px";
+    document.body.appendChild(l);
+    setTimeout(()=>l.remove(),6000);
+  },300);
+}
+</script>
+
+</body>
+</html>
